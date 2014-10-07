@@ -1,3 +1,5 @@
 mysecondonion
 =============
-Lab of Generic Repository and Unit of Work patterns with EF and ASP.NET MVC from http://techbrij.com/generic-repository-unit-of-work-entity-framework-unit-testing-asp-net-mvc
+My second example of Onion Architecture. Here we use the Generic Repository and Unit of Work patterns implemented with ASP.NET MVC, Entity Framework, Autofac, and Moq.
+
+Inspired by http://techbrij.com/generic-repository-unit-testing-ioc-di-asp-net-mvc
