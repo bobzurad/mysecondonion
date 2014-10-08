@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SampleArch.Data.Context
 {
-    public class SampleArchContext : DbContext
+    public class SampleArchContext : DbContext, ISampleArchContext
     {
         public SampleArchContext()
             : base("Name=SampleArchContext")

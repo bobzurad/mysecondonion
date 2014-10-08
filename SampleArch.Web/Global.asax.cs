@@ -7,8 +7,11 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using Autofac;
+using Autofac.Integration.Mvc;
+using SampleArch.Web.Autofac;
 
-namespace SampleArch
+namespace SampleArch.Web
 {
     public class Global : HttpApplication
     {
@@ -17,7 +20,20 @@ namespace SampleArch
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //Autofac config
+            var builder = new ContainerBuilder();
+
+            builder.RegisterControllers(typeof(HttpApplication).Assembly).PropertiesAutowired();
+
+            builder.RegisterModule(new RepositoryModule());
+            builder.RegisterModule(new ServiceModule());
+            builder.RegisterModule(new EFModule());
+
+            var container = builder.Build();
+
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\ISampleArchContext.cs" />
     <Compile Include="Repository\Base\GenericRepository.cs" />
     <Compile Include="Context\SampleArchContext.cs" />
     <Compile Include="EntityConfiguration\CountryConfiguration.cs" />
