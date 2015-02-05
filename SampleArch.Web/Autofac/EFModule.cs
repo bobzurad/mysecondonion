@@ -15,10 +15,8 @@ namespace SampleArch.Web.Autofac
         {
             builder.RegisterModule(new RepositoryModule());
 
-            //builder.RegisterType(typeof(SampleArchContext)).AsSelf().InstancePerLifetimeScope();
-            builder.RegisterType(typeof(ISampleArchContext)).AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType(typeof(IUnitOfWork)).AsImplementedInterfaces().InstancePerRequest();
-            //builder.RegisterType(typeof(UnitOfWork)).As(typeof(IUnitOfWork)).InstancePerRequest();
+            builder.RegisterType(typeof(SampleArchContext)).AsSelf().InstancePerLifetimeScope();
+            builder.RegisterType(typeof(UnitOfWork)).As(typeof(IUnitOfWork)).InstancePerRequest();            
         }
     }
 }

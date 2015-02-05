@@ -10,6 +10,7 @@ using System.Web.Http;
 using Autofac;
 using Autofac.Integration.Mvc;
 using SampleArch.Web.Autofac;
+using System.Reflection;
 
 namespace SampleArch.Web
 {
@@ -17,22 +18,18 @@ namespace SampleArch.Web
     {
         void Application_Start(object sender, EventArgs e)
         {
-            // Code that runs on application startup
+            //register areas and routing
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            //Autofac config
+            //Autofac init & config
             var builder = new ContainerBuilder();
-
-            builder.RegisterControllers(typeof(HttpApplication).Assembly).PropertiesAutowired();
-
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterModule(new RepositoryModule());
             builder.RegisterModule(new ServiceModule());
             builder.RegisterModule(new EFModule());
-
             var container = builder.Build();
-
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
