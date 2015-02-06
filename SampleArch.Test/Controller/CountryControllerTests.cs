@@ -58,7 +58,7 @@ namespace SampleArch.Test.Controller
 
             //Assert
             _countryServiceMock.Verify(m => m.Create(c), Times.Once);
-            Assert.AreEqual("Index", "result.RouteValues['action']");
+            Assert.AreEqual("Index", result.RouteValues["action"]);
         }
 
         [TestMethod]
