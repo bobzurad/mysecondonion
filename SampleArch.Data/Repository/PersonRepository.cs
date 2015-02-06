@@ -13,11 +13,8 @@ namespace SampleArch.Data.Repository
 {
     public class PersonRepository : GenericRepository<Person>, IPersonRepository
     {
-        public PersonRepository(SampleArchContext context)
-            : base(context)
-        {
-
-        }
+        public PersonRepository(DbContext context)
+            : base(context) {}
 
         public override IEnumerable<Person> GetAll()
         {

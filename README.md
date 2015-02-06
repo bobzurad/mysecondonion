@@ -7,5 +7,4 @@ This started out as the example found [here](http://techbrij.com/generic-reposit
 I've since made the following additions/changes:
 * EF configuration is code based, rather than using attributes on models
 * All interfaces (with the exception of ISampleArchContext) live in the Domain
-* Repositories take a SampleArchContext instead of a DbContext
-* TODO: fix repository tests
+* Minor changes involved with using latest nuget packages

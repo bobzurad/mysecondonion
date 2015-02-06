@@ -23,9 +23,7 @@ namespace SampleArch.Test.Repository
         {
             connection = Effort.DbConnectionFactory.CreateTransient();
             databaseContext = new TestContext(connection);
-            //objRepo = new CountryRepository(databaseContext);
-            objRepo = new Mock<CountryRepository>().Object;
-
+            objRepo = new CountryRepository(databaseContext);
         }
 
         [TestMethod]
@@ -35,7 +33,6 @@ namespace SampleArch.Test.Repository
             var result = objRepo.GetAll().ToList();
 
             //Assert
-
             Assert.IsNotNull(result);
             Assert.AreEqual(3, result.Count);
             Assert.AreEqual("US", result[0].Name);
@@ -56,7 +53,6 @@ namespace SampleArch.Test.Repository
             var lst = objRepo.GetAll().ToList();
 
             //Assert
-
             Assert.AreEqual(4, lst.Count);
             Assert.AreEqual("UK", lst.Last().Name);
         }

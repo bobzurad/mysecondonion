@@ -14,10 +14,10 @@ namespace SampleArch.Data.Repository.Base
     public abstract class GenericRepository<T> : IGenericRepository<T>
           where T : BaseEntity
     {
-        protected SampleArchContext _entities;
+        protected DbContext _entities;
         protected readonly IDbSet<T> _dbset;
 
-        public GenericRepository(SampleArchContext context)
+        public GenericRepository(DbContext context)
         {
             _entities = context;
             _dbset = context.Set<T>();

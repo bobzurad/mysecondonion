@@ -2,6 +2,7 @@
 using SampleArch.Domain.UnitOfWork;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,19 +17,16 @@ namespace SampleArch.Data.UnitOfWork
         /// <summary>
         /// The DbContext
         /// </summary>
-        private SampleArchContext _dbContext;
+        private DbContext _dbContext;
 
         /// <summary>
         /// Initializes a new instance of the UnitOfWork class.
         /// </summary>
         /// <param name="context">The object context</param>
-        public UnitOfWork(SampleArchContext context)
+        public UnitOfWork(DbContext context)
         {
-
             _dbContext = context;
         }
-
-
 
         /// <summary>
         /// Saves all pending changes

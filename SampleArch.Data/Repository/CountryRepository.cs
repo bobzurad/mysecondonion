@@ -13,11 +13,9 @@ namespace SampleArch.Data.Repository
 {
     public class CountryRepository : GenericRepository<Country>, ICountryRepository
     {
-        public CountryRepository(SampleArchContext context)
-            : base(context)
-        {
+        public CountryRepository(DbContext context)
+            : base(context) {}
 
-        }
         public Country GetById(int id)
         {
             return FindBy(x => x.Id == id).FirstOrDefault();
