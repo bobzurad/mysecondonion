@@ -19,6 +19,10 @@ namespace SampleArch.Test.Repository
         [TestInitialize]
         public void Initialize()
         {
+            //for these tests, a separate database will be created in this project's bin folder
+            //this maps |DataDirectory| in the connection string to the directory that this executes in (bin\Debug)
+            AppDomain.CurrentDomain.SetData("DataDirectory", AppDomain.CurrentDomain.BaseDirectory);
+
             databaseContext = new TestContext();
             objRepo = new CountryRepository(databaseContext);
         }
