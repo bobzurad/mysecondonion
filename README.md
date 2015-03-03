@@ -12,7 +12,8 @@ I've since made the following additions/changes:
 * Minor changes involved with using latest nuget packages
 * TODO: use AutoMapper to demonstrate mapping Domain models to separate models in the web application
 
-If you'd like to copy and rename this solution, here are steps I took:
+###Copying and Renaming this project
+Copying and renaming a Visual Studio solution is not the easiest thing to do. If you'd like to copy and rename this solution, here are steps I took:
 * Clone the solution
 * On your local file system, copy everything except the hidden .git folder to a different location
 * Open the solution in Visual Studio
@@ -29,4 +30,3 @@ If you'd like to copy and rename this solution, here are steps I took:
 * Execute all tests.
 * You are now free to add this to source control.
 * Note that .gitignore prevents the packages folder from being checked in.
-* 
