@@ -11,6 +11,7 @@ I've since made the following additions/changes:
 * All interfaces (with the exception of ISampleArchContext) live in the Domain
 * Minor changes involved with using latest nuget packages
 * TODO: use AutoMapper to demonstrate mapping Domain models to separate models in the web application
+* TODO: fix validation on the forms so they use the rules configured for entities
 
 ###Copying and Renaming this project
 Copying and renaming a Visual Studio solution is not the easiest thing to do. If you'd like to copy and rename this solution, here are steps I took:

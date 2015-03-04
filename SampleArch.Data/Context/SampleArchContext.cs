@@ -1,4 +1,5 @@
-﻿using SampleArch.Domain;
+﻿using SampleArch.Data.EntityConfiguration;
+using SampleArch.Domain;
 using SampleArch.Domain.Base;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,14 @@ namespace SampleArch.Data.Context
 
         public DbSet<Person> Persons { get; set; }
         public DbSet<Country> Countries { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //TODO: remove this initializer if you enable Code First Migrations
+            Database.SetInitializer<SampleArchContext>(new DropCreateDatabaseIfModelChanges<SampleArchContext>());
+
+            modelBuilder.Configurations.AddFromAssembly(typeof(PersonConfiguration).Assembly);
+        }
 
         public override int SaveChanges()
         {
