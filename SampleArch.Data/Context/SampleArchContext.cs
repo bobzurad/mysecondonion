@@ -25,7 +25,7 @@ namespace SampleArch.Data.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //TODO: remove this initializer if you enable Code First Migrations
-            Database.SetInitializer<SampleArchContext>(new DropCreateDatabaseIfModelChanges<SampleArchContext>());
+            Database.SetInitializer<SampleArchContext>(new DropCreateIfChangeInitializer());
 
             modelBuilder.Configurations.AddFromAssembly(typeof(PersonConfiguration).Assembly);
         }
@@ -61,6 +61,31 @@ namespace SampleArch.Data.Context
             }
 
             return base.SaveChanges();
+        }
+
+        private class DropCreateIfChangeInitializer : DropCreateDatabaseIfModelChanges<SampleArchContext>
+        {
+            protected override void Seed(SampleArchContext context)
+            {
+
+                var country = new Country
+                {
+                    Name = "USA"
+                };
+
+                context.Countries.Add(country);
+
+                context.Persons.Add(new Person
+                {
+                    Name = "Homer Simpson",
+                    Phone = "555-420-2345",
+                    Address = "432 Evergreen Tr.",
+                    State = "Springfield",
+                    Country = country,
+                    CreatedDate = DateTime.Now,
+                    UpdatedDate = DateTime.Now
+                });
+            }
         }
     }
 }
