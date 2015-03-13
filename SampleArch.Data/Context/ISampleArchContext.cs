@@ -11,9 +11,6 @@ namespace SampleArch.Data.Context
 {
     public interface ISampleArchContext
     {
-        DbSet<Person> Persons { get; set; }
-        DbSet<Country> Countries { get; set; }
-
         int SaveChanges();
     }
 }
