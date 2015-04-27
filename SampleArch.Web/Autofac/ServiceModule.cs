@@ -10,6 +10,8 @@ namespace SampleArch.Web.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
+            //this is why we have to include SampleArch.Service as a reference to the web project.
+            //not sure if there is a better way
             builder.RegisterAssemblyTypes(System.Reflection.Assembly.Load("SampleArch.Service"))
                 .Where(t => t.Name.EndsWith("Service"))
                 .AsImplementedInterfaces()
