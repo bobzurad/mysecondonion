@@ -13,6 +13,15 @@ I've since made the following additions/changes:
 * TODO: use AutoMapper to demonstrate mapping Domain models to separate models in the web application
 * TODO: fix validation on the forms so they use the rules configured for entities
 
+###Enabling Migrations
+Entity Framework Migrations are not enabled by default. To enable them, first make sure that a valid connection string is in the Web project's web.config, open Package Manager Console, select the Data project and run:
+```
+Enable-Migrations
+Add-Migration FirstMigration
+Update-Database
+```
+Also, don't forget to remove the call to Database.SetInitializer() in OnModelCreating() in SampleArchContext.cs
+
 ###Copying and Renaming this project
 Copying and renaming a Visual Studio solution is not the easiest thing to do. If you'd like to copy and rename this solution, here are steps I took:
 * Clone the solution
